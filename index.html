@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+      *{
+         margin:0px;
+         padding:0px;
+         box-sizing: border-box;
+      
+     }
+     body{
+         background-color: rgb(178, 135, 135);
+     }
+     #navbar{
+         display: flex;
+         justify-content: space-between;
+         padding:1%;
+         box-shadow: 2px 2px 5px 5px rgb(74, 75, 82);
+         margin-bottom: 30px;
+     }
+     #navbar>div{
+         display:flex;
+         list-style: none;
+
+     }
+     #navbar a{
+         text-decoration: none;
+         color:rgb(255, 255, 255);
+         font-size: 20px;
+     }
+     #navbar a:hover{
+         color: brown;
+     }
+     
+     input{
+         display: block;
+         margin:15px 0px;
+         
+         font-size:20px;
+         padding:2%;
+     }
+     form{
+         width:400px;
+         border:1px solid rgb(0, 255, 34);
+         margin:auto;
+         padding:3%;
+         background-color: rgb(75, 8, 8);
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+         border-radius: 12px;
+
+     }
+     button{
+         display:inline;
+         margin:5px;
+         padding:10px;
+         background-color:red;
+         color: white;
+         border-radius: 9px;
+     }
+     button:hover{
+         background-color: black;
+         color: white;
+         
+     }
+
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div> <a href="index.html">Home</a></div>
+        <div><a href="man.html">For Man</a></div>
+        <div><a href="woman.html">For woman</a></div>
+    </div>
+    <form id="form">
+    <input class="input" id="imgurl" type="text" placeholder="Enter image"> <br>
+    <input class="input"  id="brandname" type="text" placeholder="Enter brand"> <br>
+    <input class="input" id="price" type="text" placeholder="Enter price"> <br>
+
+    <button-type id="mandata" > For Man</button>
+    <button-type id="womandata">For Woman</button>
+</form>
+</body>
+</html>
+<script>
+    document.querySelector("#mandata").addEventListener("click",userChoice)
+    var manDataArr = JSON.parse(localStorage.getItem("mansData"))||[]
+    function userChoice (){
+        event.preventDefault()
+        manDataObj = {
+            Forimage:form.imgurl.value,
+            Forbrand:form.brandname.value,
+            Forprice:form.price.value,
+        }
+       manDataArr.push(manDataObj);
+        console.log(manDataArr);
+     localStorage.setItem("mansData",JSON.stringify(manDataArr))
+    
+    }
+    // this is for woman
+    document.querySelector("#womandata").addEventListener("click",userchoice2)
+    var womanDataArr = JSON.parse(localStorage.getItem("womansData"))||[]
+
+    function userchoice2 (){
+        event.preventDefault()
+        womanDataobj = {
+            Forimage: form.imgurl.value,
+            Forbrand: form.brandname.value,
+            Forprice: form.price.value,
+        }
+       womanDataArr.push(womanDataobj);
+        console.log(womanDataArr);
+     localStorage.setItem("womansData",JSON.stringify(womanDataArr))
+    }
+</script>

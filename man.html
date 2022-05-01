@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+         margin:0px;
+         padding:0px;
+         box-sizing: border-box;
+     }
+     body{
+         background-color: rgb(248,246,246);
+     }
+     h1{
+         text-align: center;
+         margin-top:20px ;
+     }
+     .box{
+         display:-moz-grid-group
+         -moz-grid-coloumn; border-image-repeat: (4,350px);
+         -moz-grid-row;
+         gap:30px;
+         justify-content: center;
+         justify-items: center;
+         margin-top: 30px;
+
+     }
+     
+     div>img{
+         height:70%;
+         width:100%;
+     }
+     img+h3{
+         font-size: 15px;
+         margin-top:10px;
+     }
+     h3+p{
+         font-size: 15px;
+         font-weight: bold;
+         margin-top: 10px;
+     }
+     p+button{
+         margin:20px 0px 20px 90px;
+         padding:5px;
+         color:white;
+         background-color: teal;
+     }
+
+
+    </style>
+</head>
+<body>
+    <h1>Mans page</h1>
+    <div class="box" id="container">
+        
+    </div> 
+    <!-- this is for appen d a;; the craeate elements -->
+
+</body>
+</html>
+<script>
+    // in java script all tag shoud be write in 
+      var manDataArr = JSON.parse(localStorage.getItem("mansData"))
+       manDataArr.forEach(function(elem){
+        var div1 = document.createElement("div")
+        var image = document.createElement("img")
+        image.setAttribute("src",elem.Forimage)
+
+        var brandname = document.createElement("h3")
+        brandname.innerText = elem.Forbrand
+        // those attributes for store data
+
+        var pricetag = document.createElement("p");
+        pricetag.innerText = elem.Forprice
+        var button = document.createElement("button")
+         button.innerText="Add to chart";
+        div1.append(image,brandname,pricetag,button);
+        console.log(div1)
+        // this option push all the value to div
+        document.querySelector("#container").append(div1)
+
+        // this is push the div 1 value to body cobntainer
+
+
+      })
+</script>

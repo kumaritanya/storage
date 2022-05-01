@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WoMans page</h1>
+    <div id="container">
+        
+    </div> 
+    <!-- this is for appen d a;; the craeate elements -->
+
+</body>
+</html>
+<script>
+    // in java script all tag shoud be write in 
+      var manDataArr = JSON.parse(localStorage.getItem("womansData"))
+       womanDataArr.forEach(function(elem){
+        var div1 = document.createElement("div")
+        var image = document.createElement("img")
+        image.setAttribute("src",elem. Forimage)
+        // this is select the object value
+
+        var brandname = document.createElement("h3")
+        brandname.innerText = elem.Forbrand
+        // those attributes for store data
+
+        var pricetag = document.createElement("p");
+        pricetag.innerText = elem.Forprice
+        var button = document.createElement("button")
+         button.innerText="Add to chart";
+        div1.append(image,brandname,pricetag,button);
+        console.log(div1)
+        // this option push all the value to div
+        document.querySelector("#container").append(div1)
+
+        // this is push the div 1 value to body cobntainer
+
+
+      })
+</script>
